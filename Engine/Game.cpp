@@ -32,12 +32,17 @@ Game::Game( MainWindow& wnd )
 	goal( xDist( rng ),yDist( rng ) ),
 	meter( 20,20 )
 {
+	Vector v1(20.0f, 13.0f);
+	Vector v2(5.0f, 2.0f);
+	Vector v3 = v1 + v2;
+	v3 += v2;
+
 	std::uniform_real_distribution<float> vDist( -2.5f * 60.0f,2.5f * 60.0f );
 	for( int i = 0; i < nPoo; ++i )
 	{
 		poos[i].Init( xDist( rng ),yDist( rng ),vDist( rng ),vDist( rng ) );
 	}
-	title.Play();
+	//title.Play();
 }
 
 void Game::Go()
@@ -64,7 +69,7 @@ void Game::UpdateModel()
 			if( poos[i].TestCollision( dude ) )
 			{
 				isGameOver = true;
-				fart.Play( rng );
+				//fart.Play( rng );
 			}
 		}
 
@@ -72,7 +77,7 @@ void Game::UpdateModel()
 		{
 			goal.Respawn( xDist( rng ),yDist( rng ) );
 			meter.IncreaseLevel();
-			pickup.Play( rng );
+			//pickup.Play( rng );
 		}
 	}
 	else

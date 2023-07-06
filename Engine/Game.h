@@ -30,7 +30,7 @@
 #include "SoundEffect.h"
 #include <random>
 #include "FrameTimer.h"
-
+#include "Vector.h"
 class Game
 {
 public:
